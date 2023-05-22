@@ -1,0 +1,2 @@
+class PokeMove < ApplicationRecord
+end
