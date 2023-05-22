@@ -33,7 +33,7 @@ class Pokemon < ApplicationRecord
         'steel'
       ].sort.freeze
 
-    validates :captured, inclusion: [true, false]
+    validates :captured, inclusion: { in: [true, false], message: "captured cannot be nil" }
     validates :name, length: {minimum:3, maximum:255}, uniqueness: {message: "'%{value}' is already in use"}
     validates :number, uniqueness: {message: "'%{value}' is already in use"}, numericality: { greater_than: 0 }
     validates :attack, numericality: {in: 0..100}
